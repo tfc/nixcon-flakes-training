@@ -102,6 +102,6 @@
             settings.rust.cargoManifestPath = "./rust-project/Cargo.toml";
           };
         };
-    };
+      };
   };
 }
