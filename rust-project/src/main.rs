@@ -31,7 +31,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     let start = Instant::now();
                     let resp = client.get(&line).send().await;
                     let duration = start.elapsed();
-                    let item = resp.and_then(|r| Ok(r.status().as_u16()));
+                    let item = resp.map(|r| r.status().as_u16());
                     tx.send((line, item, duration)).unwrap();
                 }
             })
